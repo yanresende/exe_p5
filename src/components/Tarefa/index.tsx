@@ -9,10 +9,16 @@ import { Botao, BotaoSalvar } from '../../styles'
 
 type Props = TarefaClass
 
-const Tarefa = ({ email: emailOriginal, nome, id, telefone }: Props) => {
+const Tarefa = ({
+  email: emailOriginal,
+  nome,
+  id,
+  telefone: telefoneOriginal
+}: Props) => {
   const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
   const [email, setEmail] = useState('')
+  const [telefone, setTelefone] = useState('')
 
   useEffect(() => {
     if (emailOriginal.length > 0) {
@@ -20,9 +26,16 @@ const Tarefa = ({ email: emailOriginal, nome, id, telefone }: Props) => {
     }
   }, [emailOriginal])
 
+  useEffect(() => {
+    if (telefoneOriginal.length > 0) {
+      setTelefone(telefoneOriginal)
+    }
+  }, [telefoneOriginal])
+
   function cancelarEdicao() {
     setEstaEditando(false)
     setEmail(emailOriginal)
+    setTelefone(telefoneOriginal)
   }
 
   return (
@@ -40,7 +53,11 @@ const Tarefa = ({ email: emailOriginal, nome, id, telefone }: Props) => {
         value={email}
         onChange={(evento) => setEmail(evento.target.value)}
       />
-      <S.Descricao disabled={!estaEditando} value={telefone} />
+      <S.Descricao
+        disabled={!estaEditando}
+        value={telefone}
+        onChange={(evento) => setTelefone(evento.target.value)}
+      />
       <S.BarraAcoes>
         {estaEditando ? (
           <>

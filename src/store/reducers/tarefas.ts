@@ -11,19 +11,19 @@ const initialState: TarefasState = {
       id: 1,
       email: 'teste1@gmail.com',
       nome: 'Adriano Oliveira Resende',
-      telefone: 31912345678
+      telefone: '(31) 912345678'
     },
     {
       id: 2,
       email: 'teste2@gmail.com',
       nome: 'Maria Silva Costa',
-      telefone: 31912345678
+      telefone: '(31) 912345678'
     },
     {
       id: 3,
       email: 'teste3@gmail.com',
       nome: 'Wesley Londero Araujo',
-      telefone: 31912345678
+      telefone: '(31) 912345678'
     }
   ]
 }

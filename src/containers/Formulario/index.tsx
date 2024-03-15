@@ -11,7 +11,7 @@ const Formulario = () => {
   const navigate = useNavigate()
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
-  const [telefone, setTelefone] = useState()
+  const [telefone, setTelefone] = useState('')
 
   const cadastrarTarefa = (evento: FormEvent) => {
     evento.preventDefault()
@@ -34,7 +34,7 @@ const Formulario = () => {
           value={nome}
           onChange={(evento) => setNome(evento.target.value)}
           type="text"
-          placeholder="Nome"
+          placeholder="Nome completo"
         />
         <Campo
           value={email}
@@ -44,9 +44,9 @@ const Formulario = () => {
         />
         <Campo
           value={telefone}
-          onChange={(evento) => setTelefone(evento.target.value)}
-          type="number"
-          placeholder="Telefone"
+          onChange={({ target }) => setTelefone(target.value)}
+          type="text"
+          placeholder="Telefone (99) 99999-9999"
         />
         <BotaoSalvar type="submit">Cadastrar</BotaoSalvar>
       </Form>
